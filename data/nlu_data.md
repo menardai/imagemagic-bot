@@ -1,0 +1,587 @@
+## intent:resize
+- resize
+- resize to
+- resize to 640x480
+- resize to 640 x 480
+- resize image to
+- resize this image to
+- I want to resize a picture
+- change the size of my image
+- make it this wide by this height
+- I want the image to be this height and this wide
+- make it larger
+- make it smaller
+- make it square
+- I want it larger
+- I want it smaller
+- I want it square
+- I want the image larger
+- I want the image smaller
+- I want the image square
+- fit to
+- grow it to 
+- enlarge by 
+- Extend
+- Expande
+- Widen
+- Increase
+- Rise
+- Augment
+- Broaden
+- Larger
+- smaller
+
+## intent:greet
+- Hi
+- Hey
+- Hi bot
+- Hey bot
+- Hello
+- Good morning
+- hi again
+- hi folks
+- hi Mister
+- hi pal!
+- hi there
+- greetings
+- hello everybody
+- hello is anybody there
+- hello robot
+
+## intent:name
+- My name is [Juste](name)  <!--- Square brackets contain the value of entity while the text in parentheses is a a label of the entity --> 
+- I am [Josh](name)
+- I'm [Lucy](name)
+- People call me [Greg](name)
+- It's [David](name)
+- Usually people call me [Amy](name)
+- My name is [John](name)
+- You can call me [Sam](name)
+- Please call me [Linda](name)
+- Name name is [Tom](name)
+- I am [Richard](name)
+- I'm [Tracy](name)
+- Call me [Sally](name)
+- I am [Philipp](name)
+- I am [Charlie](name)
+- I am [Charlie](name)
+- I am [Ben](name)
+- Call me [Susan](name)
+- [Lucy](name)
+- [Peter](name)
+- [Mark](name)
+- [Joseph](name)
+- [Tan](name)
+- [Pete](name)
+- [Elon](name)
+- [Penny](name)
+- name is [Andrew](name)
+- I [Lora](name)
+- [Stan](name) is my name
+- [Susan](name) is the name
+- [Ross](name) is my first name
+- [Bing](name) is my last name
+- Few call me as [Angelina](name)
+- Some call me [Julia](name)
+- Everyone calls me [Laura](name)
+- I am [Ganesh](name)
+- My name is [Mike](name)
+- just call me [Monika](name)
+- Few call [Dan](name)
+- You can always call me [Suraj](name)
+- Some will call me [Andrew](name)
+- My name is [Ajay](name)
+- I call [Ding](name)
+- I'm [Partia](name)
+- Please call me [Leo](name)
+- name is [Pari](name)
+- name [Sanjay](name)
+
+## intent:help
+- I need you to help me
+- I need you to do something for me
+- I need a hand
+- will you help me
+- can you do something for me
+- help me with a problem
+- can you help me
+- help me
+- assistance
+- I need your help
+- I need help
+- you can help me
+- can you help me with something
+- can you help
+- assist
+- can u help me
+- I need some help
+- you help me
+- do you help me
+- can help me
+- could you give me a hand
+- can you help me out
+- need help
+- I need you
+- can you help me now
+- I want your help
+- need your help
+- assist me
+- are you going to help me
+- can you help me with that
+- help
+- I need you right now
+- would you help me
+- can you assist me
+- sos
+- do you want to help me
+- please help me
+- can you help us
+- do me a favor
+
+## intent:advice
+- what should I do about it
+- any suggestions
+- what do you recommend
+- give me a wise advice
+- I need advice
+- any advice
+- do you have any advice for me
+- advise me
+- what should I do
+- can I ask for your advice
+- can you advise me
+- guide me
+- can you give me advice
+- can you offer any advice
+- give me some advice about
+- give me some good advice
+- help me with advice
+- I could use some advice
+- I need an advice from you
+- I seek your advice
+- what can you recommend
+- what do you suggest
+- what is your advice
+
+## intent:user_waiting
+- I'm waiting
+- still waiting
+- I'll wait
+- I can't wait anymore
+- how long do I have to wait
+
+## intent:smart
+- you are so intelligent
+- you are a genius
+- smart
+- brilliant
+- clever
+- you are clever
+- you are so brainy
+- you're really smart
+- you're really brainy
+- you know a lot
+- you know a lot of things
+- you have a lot of knowledge
+- you know so much
+- how smart you are
+- how brainy you are
+- how clever you are
+- how brilliant you are
+- you are intelligent
+- you are qualified
+- you are really smart
+- you're very smart
+- you are so smart
+- you are too smart
+- you are very clever
+- you are very intelligent
+- you are very smart
+- you're intelligent
+- you're a genius
+- you're a smart cookie
+- you're clever
+- you're pretty smart
+- you're qualified
+- why are you so smart
+- you are so clever
+
+## intent:crazy
+- you're nuts
+- you are crazy
+- you're out of your mind
+- you're so crazy
+- how crazy you are
+- you're so out of your mind
+- you went crazy
+- I think you're crazy
+- are you crazy
+- are you mad
+- are you insane
+- are you mad at me
+- are you mad or what
+- are you nuts
+- you are a weirdo
+- you are insane
+- you are mad
+
+## intent:funny
+- you make me laugh a lot
+- you are hilarious
+- you are really funny
+- you're the funniest bot I've talked to
+- you make me laugh
+- you're so funny
+- you're a very funny bot
+- you're really funny
+- how funny you are
+- you're incredibly funny
+- you are funny
+- you're the funniest
+- you are so funny
+- you are very funny
+- that was funny
+
+## intent:good
+- you are very helpful
+- you are the best
+- you're a true professional
+- you are good
+- you work well
+- you are good at it
+- you are very good at it
+- you are a pro
+- you are a professional
+- you're awesome
+- you work very well
+- you're perfect
+- you're great
+- you're so kind
+- you are amazing
+- you are awesome
+- you are cool
+- you are really good
+- you are really nice
+- you are so amazing
+- you're just super
+- you are so awesome
+- you are so cool
+- you are so fine
+- you are so good
+- you are so helpful
+- you are so lovely
+- you are the best ever
+- you are the best in the world
+- you are the nicest person in the world
+- you are too good
+- you are very cool
+- you are very kind
+- you are very lovely
+- you are very useful
+- you are wonderful
+- you made my day
+- you make my day
+- you rock
+- you almost sound human
+- I want to tell everyone how awesome you are
+- I'd like to tell everyone that you are awesome
+- I want to let everyone know that you are awesome
+- let's tell everyone that you are awesome
+- you are really amazing
+- so cool
+- cool
+- that is good
+- glad to hear that
+- that's very nice of you
+- terrific
+- it's amazing
+- that's awesome
+- perfect
+- excellent
+- brilliant
+- that's great
+- it's good
+- it's great
+- fine
+- good
+- nice
+- that's fine
+- very good
+- amazing
+- fantastic
+- great
+- good very good
+- that's very good
+- really good
+- it is fine
+- it is good
+- it's great
+- it's perfect
+- much better
+- not bad
+- not too bad
+- it's very good
+- marvelous
+- that's nice
+- pleasant
+- pretty good
+- really nice
+- splendid
+- straight
+- super
+- super fantastic
+- sweet
+- really well
+- very well
+- that is awesome
+- that is nice
+- that is wonderful
+- that was amazing
+- that was awesome
+- that was cute
+- that was pretty good
+- that was very good
+- that's a good idea
+- that's a good thing
+- that's amazing
+- that's awesome thank you
+- that's better
+- that's cute
+- that's fantastic
+- that's much better
+- that's nice of you
+- that's not bad
+- that's perfect
+- that's pretty good
+- that's really good
+- that's really nice
+- that's sweet of you
+- that's very nice
+- that's wonderful
+- this is awesome
+- this is good
+- this is great
+- very nice
+- very then
+- wonderful
+- I'm glad to hear that
+- ok good
+- good for you
+- good to know
+- glad to hear it
+- so good
+- so nice of you
+- so sweet of you
+- it was good
+- oh well
+- good thing
+- that was good
+- it's awesome
+- okay good
+- it's fine
+- no it's okay
+- that's great
+- very nice
+- it's very good
+- that's fine
+
+
+## intent:talk
+- why aren't you talking to me
+- do you want to chat with me
+- will you talk to me
+- talk to me
+- are you going to talk to me
+- are you talking to me
+- can you chat with me
+- can you speak with me
+- can you talk to me
+- can you talk with me
+- say
+- talk
+- chat with me
+- just chat with me
+- speak to me
+- speak with me
+- talk with me
+- why don't you talk to me
+- you can talk to me
+
+
+## intent:bad
+- pretty bad
+- not good enough
+- that was lame
+- that was terrible
+- it is bad
+- that's bad
+- this is bad
+- not good
+- I'm afraid it's bad
+- no it's bad
+- that was awful
+- bad
+- so bad
+- this is too bad
+- terrible
+- horrible
+- horrific
+- abysmal
+- it's bad
+- no good
+- that was bad
+- that was horrible
+- that's lame
+- that's not good
+- that's terrible
+- that's too bad
+- this is not good
+- too bad
+- very bad
+- bad girl
+- it's not good
+- not so good
+- it's very bad
+- it's too bad
+- that's not good enough
+- well too bad
+- bad very bad
+- it's so bad
+- really bad
+- it's really bad
+- bad idea
+- that is bad
+- that was not good
+- it's not so good
+- not a good one
+- oh that's not good
+- not too good
+- so lame
+- that's really bad
+- it is too bad
+- bad really bad
+
+## intent:no_problem
+- no worries
+- no probs
+- no problem
+- there's no problem
+- sure no problem
+- no problem about that
+- don't worry
+- don't worry there's no problem
+
+## intent:thanks
+- you helped a lot thank you
+- appreciate your help
+- cheers
+- thank you
+- thanks
+- thanks a lot
+- terrific thank you
+- great thank you
+- thanks so much
+- thank you so much
+- thanks for your help
+- thank you for your help
+- nice thank you
+- I appreciate it
+- I thank you
+- thank you that will be all
+- thanks buddy
+- thanks love
+- thank you my friend
+- well thanks
+- very good thank you
+- good thanks
+- thanks again
+- thank you again
+- all thank you
+- alright thank you
+- alright thanks
+- no thank you that's all
+- perfect thank you
+- so nice of you
+- well thank you
+- well thanks
+- thnx
+- thank you
+- thanx
+
+## intent:dont_care
+- I don't care
+- I shouldn't care about this
+- whatever
+- I do not care
+- I don't care at all
+- not caring
+- not care at all
+- don't care at all
+- not caring at all
+
+## intent:what_you_mean
+- what exactly do you mean
+- what do you mean
+- is that what you mean
+- what do you mean exactly
+- but what do you mean
+
+## intent:wow
+- wow
+- wow wow
+- wow wow wow
+- wooow
+- woah
+
+## intent:goodbye
+- okay see you later
+- hope to see you later
+- bye for now
+- till next time
+- I must go
+- bye
+- goodbye
+- see you
+- see you soon
+- bye-bye
+- bye bye good night
+- good bye
+- bye bye see you
+- bye bye see you soon
+- bye bye take care
+- I said bye
+- never mind bye
+- now bye
+- that's all goodbye
+- that's it goodbye
+- leave me alone
+- go to bed
+- goodbye for now
+- talk to you later
+- you can go now
+- get lost
+- goodbye see you later
+- alright bye
+- see ya
+- thanks bye bye
+- okay bye
+- okay thank you bye
+- see you tomorrow
+- ok bye
+
+## intent:user_joking
+- I am joking
+- I'm kidding
+- I'm just being funny
+- it was a joke
+- I was just joking
+- it's a joke
+- joking
+- just kidding
+- kidding
+- I'm just playing with you
+
+
+
+
+

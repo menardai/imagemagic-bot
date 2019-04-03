@@ -1,0 +1,56 @@
+intents:
+- resize
+- greet
+- name
+- help
+- advide
+- user_waiting
+- smart
+- crazy
+- funny
+- good
+- talk
+- bad
+- no_problem
+- thanks
+- dont_care
+- what_you_mean
+- wow
+- goodbye
+- user_joking
+
+
+entities:
+- name
+
+
+slots:
+  name:
+    type: text
+
+
+actions:
+- utter_resized
+- utter_thanks
+- utter_greet
+- utter_greet_name
+- utter_goodbye
+- action_resize
+
+
+templates:
+  utter_resized:
+  - text: "I resized your image, here it is:"
+
+  utter_greet:
+  - text: "Nice to you meet you. How can I help?"
+
+  utter_greet_name:
+  - text: "Nice to you meet you {name}. How can I help?"
+
+  utter_goodbye:
+  - text: "Talk to you later!"
+  
+  utter_thanks:
+  - text: "My pleasure."
+  
