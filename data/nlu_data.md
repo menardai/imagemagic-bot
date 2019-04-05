@@ -1,10 +1,10 @@
 ## intent:resize
 - resize
 - resize to
-- resize to 640x480
-- resize to 640 x 480
-- resize image to
-- resize this image to
+- resize to dimension
+- resize to dimension
+- resize image to dimension
+- resize this image to dimension
 - I want to resize a picture
 - change the size of my image
 - make it this wide by this height

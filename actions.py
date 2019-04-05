@@ -22,24 +22,26 @@ class ActionResize(Action):
         return "action_resize"
 
     def run(self, dispatcher, tracker, domain):
-        latest_message_text = tracker.latest_message['text']
+        # entities => [{'value': '640x480', 'confidence': 1.0, 'entity': 'dimension', 'extractor': 'dim_regex'}]
+        dim_entity = [e for e in tracker.latest_message.get('entities') if e['entity'] == 'dimension']
+        if dim_entity:
+            dim = dim_entity[0]['value']
 
-        # Extract dimension (style 640x480) from text (removing all spaces)
-        # 1 or more digits, follow by 0 more white space, 'x', 0 more white space, 1 or more digits
-        dim_search = re.search('(\d+)(\s*)x(\s*)(\d+)', latest_message_text, re.IGNORECASE)
-        if dim_search:
-            dim = dim_search.group(0)
-            dim = dim.replace(" ", "")
+            bash_command = f"magick logo: -resize {dim} img_output/wiz_{dim}.png"
 
-        bash_command = f"magick logo: -resize {dim} img_output/wiz_{dim}.png"
+            try:
+                process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+                output, error = process.communicate()
+            except Exception as e:
+                error = 'Exception raised by ImageMagick.'
+        else:
+            error = 'No dimension specified.'
 
-        try:
-            process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
-            output, error = process.communicate()
-        except Exception as e:
-            error = 'exception raised'
+        if error:
+            utter_msg_str = f'Sorry, something went wrong during resize operation... {error}.'
+        else:
+            utter_msg_str = f'The logo has been resized to {dim} and saved in img_output folder!'
 
-        utter_msg_str = 'jobs is done, look for a png file in /img_output folder!' if error is None else 'Sorry, something went wrong during resize operation...'
         dispatcher.utter_message(utter_msg_str)
         return []
 
