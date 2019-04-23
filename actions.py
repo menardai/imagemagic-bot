@@ -21,10 +21,17 @@ class ActionResize(Action):
         # Dimension
         #   entities => [{'value': '640x480', 'confidence': 1.0, 'entity': 'dimension', 'extractor': 'dim_regex'}]
         dim_entity = [e for e in tracker.latest_message.get('entities') if e['entity'] == 'dimension']
-        dim = dim_entity[0]['value'] if dim_entity else None
+        if dim_entity:
+            # priority goes to dimension specified in the latest message
+            dim = dim_entity[0]['value']
+        else:
+            # if not specified on the latest message then look in the slots
+            # because it could have been specified earlier in the conversation
+            dim = tracker.slots['dimension'] if tracker.slots.get('dimension') else None
 
         # Image
         source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
+        target_name = ""
 
         if dim and source_filename:
             source_file = Path(source_filename)
@@ -52,10 +59,10 @@ class ActionResize(Action):
             else:
                 error = 'No image specified'
 
-        if error:
-            utter_msg_str = f'Sorry, something went wrong during resize operation... {error}.'
+        if not error:
+            utter_msg_str = f'The image has been resized to {dim} and saved to: img_output/{target_name}'
         else:
-            utter_msg_str = f'The logo has been resized to {dim} and saved in img_output folder!'
+            utter_msg_str = f'Sorry, something went wrong during resize operation... {error}.'
 
         dispatcher.utter_message(utter_msg_str)
         return []

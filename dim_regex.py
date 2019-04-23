@@ -61,7 +61,6 @@ class DimRegexPreprocessor(Component):
             message.set("entities", [entity], add_to_output=True)
 
             message.text = message.text.replace(dim_str, 'dimension')  # 'resize to dimension.'
-            print(message.text)
 
     # def persist(self, model_dir):
     #     """0.13 version - Persist this component to disk for future loading."""
