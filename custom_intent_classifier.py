@@ -1,4 +1,5 @@
 import logging
+import json
 
 from rasa_nlu.components import Component
 
@@ -41,7 +42,7 @@ class ImageDroppedCheck(Component):
 
         # check for message.text starts_with '[IMAGEDROPPED]'
         if message.text.startswith('[IMAGEDROPPED]'):
-            logger.info("*** Image dropped in message - force intent 'image_dropped' *** c")
+            logger.info("*** Image dropped in message - force intent 'image_dropped' ***")
 
             # deserialized images object from message.text
             images_json = message.text[14:]
@@ -52,7 +53,8 @@ class ImageDroppedCheck(Component):
             message.set("intent_ranking", [intent], add_to_output=True)
 
             # add "images" entity
-            entity = self.convert_to_rasa(images_json, 1.0)
+            images_dict = json.loads(images_json)
+            entity = self.convert_to_rasa(images_dict, 1.0)
             message.set("entities", [entity], add_to_output=True)
 
     def persist(self, file_name, model_dir):

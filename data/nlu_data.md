@@ -6,6 +6,7 @@
 - resize image to dimension
 - resize this image to dimension
 - I want to resize a picture
+- I want it dimension
 - change the size of my image
 - make it this wide by this height
 - I want the image to be this height and this wide

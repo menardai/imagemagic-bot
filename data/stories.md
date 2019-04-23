@@ -19,6 +19,12 @@
 * image_dropped
  - utter_nice_image
  
+## story_image_dropped_resize_01
+* image_dropped
+ - utter_nice_image
+* resize
+ - action_resize
+ 
 ## story_resize_01
 * resize
  - action_resize
