@@ -48,10 +48,11 @@ class DimRegexPreprocessor(Component):
 
     def process(self, message, **kwargs):
         # Extract dimension (style 640x480) from message.text and remove all spaces.
+        # Ignore if the message is an image drop.
         # REGEX description:
         #   1 or more digits, follow by 0 more white space, 'x', 0 more white space, 1 or more digits.
         dim_search = re.search('(\d+)(\s*)x(\s*)(\d+)', message.text, re.IGNORECASE)
-        if dim_search:
+        if dim_search and "[IMAGEDROPPED]" not in message.text:
             # ex: message.text = "resize to 640 x 480."
             dim_str = dim_search.group(0)   # '640 x 480'
             dim = dim_str.replace(" ", "")  # '640x480'
