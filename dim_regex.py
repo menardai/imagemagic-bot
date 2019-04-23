@@ -1,8 +1,3 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import re
 
 from rasa_nlu.components import Component
@@ -68,6 +63,10 @@ class DimRegexPreprocessor(Component):
             message.text = message.text.replace(dim_str, 'dimension')  # 'resize to dimension.'
             print(message.text)
 
-    def persist(self, model_dir):
-        """Persist this component to disk for future loading."""
+    # def persist(self, model_dir):
+    #     """0.13 version - Persist this component to disk for future loading."""
+    #     pass
+
+    def persist(self, file_name, model_dir):
+        """0.14 version - Persist this component to disk for future loading."""
         pass

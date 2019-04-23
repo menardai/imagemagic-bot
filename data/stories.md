@@ -15,6 +15,10 @@
  - utter_greet_name
  
 
+## story_image_dropped
+* image_dropped
+ - utter_nice_image
+ 
 ## story_resize_01
 * resize
  - action_resize

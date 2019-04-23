@@ -1,5 +1,6 @@
 intents:
 - resize
+- image_dropped
 - greet
 - name
 - help
@@ -22,15 +23,19 @@ intents:
 
 entities:
 - name
+- images
 
 
 slots:
   name:
     type: text
+  images:
+    type: text
 
 
 actions:
 - utter_resized
+- utter_nice_image
 - utter_thanks
 - utter_greet
 - utter_greet_name
@@ -41,6 +46,9 @@ actions:
 templates:
   utter_resized:
   - text: "I resized your image, here it is:"
+
+  utter_nice_image:
+  - text: "What a nice image!"
 
   utter_greet:
   - text: "Nice to you meet you. How can I help?"

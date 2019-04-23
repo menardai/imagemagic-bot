@@ -31,6 +31,12 @@
 - Larger
 - smaller
 
+## intent:image_dropped
+- USER_DROPPED_IMAGE
+- user_dropped_image
+- USER DROPPED IMAGE
+- user dropped image
+
 ## intent:greet
 - Hi
 - Hey
