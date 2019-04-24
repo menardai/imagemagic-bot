@@ -2,15 +2,21 @@
 import logging
 import requests
 import json
-from pathlib import Path
-
-from rasa_core_sdk import Action
-
 import subprocess
+
+from cloudinary.uploader import upload
+from pathlib import Path
+from rasa_core_sdk import Action
 
 
 logger = logging.getLogger(__name__)
 
+"""
+# Cloudinary settings using environment variables. Add to your .bashrc
+export CLOUDINARY_CLOUD_NAME="imagemagic"  
+export CLOUDINARY_API_KEY="xxxxxxxxxxxxxx"  
+export CLOUDINARY_API_SECRET="xxxxxxxxxxxxxxxxxxxxxxxxx" 
+"""
 
 class ActionResize(Action):
     def name(self):
@@ -29,9 +35,11 @@ class ActionResize(Action):
             # because it could have been specified earlier in the conversation
             dim = tracker.slots['dimension'] if tracker.slots.get('dimension') else None
 
+        target_name = ""
+        cloudinary_response = None
+
         # Image
         source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
-        target_name = ""
 
         if dim and source_filename:
             source_file = Path(source_filename)
@@ -49,6 +57,10 @@ class ActionResize(Action):
                     output, error = process.communicate()
                 except Exception as e:
                     error = 'Exception raised by ImageMagick'
+
+                # upload resized image to Cloudinary
+                cloudinary_response = upload(f"img_output/{target_name}")
+
             else:
                 error = f'Image "{source_filename}" do not exists'
         else:
@@ -65,6 +77,10 @@ class ActionResize(Action):
             utter_msg_str = f'Sorry, something went wrong during resize operation... {error}.'
 
         dispatcher.utter_message(utter_msg_str)
+        if cloudinary_response and cloudinary_response['url']:
+            dispatcher.utter_attachment([{"title": f"Image resized to {dim}",
+                                          "image_url": cloudinary_response['url']}])
+
         return []
 
 
