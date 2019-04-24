@@ -80,9 +80,9 @@ class ActionImageAcknowledged(Action):
             # make sure image exists
             if source_file.is_file():
                 utter_msg_str = f"Got it, nice picture! Here are the details I extracted:\n" \
-                                f"  name: {image['name']}\n" \
+                                f"```  name: {image['name']}\n" \
                                 f"  dimension: {image['width']}x{image['height']}\n" \
-                                f"  file size: {image['size']} bytes"
+                                f"  file size: {image['size']} bytes```"
             else:
                 utter_msg_str = "Oups, it looks like I had a problem saving the image you sent me :-("
         else:
