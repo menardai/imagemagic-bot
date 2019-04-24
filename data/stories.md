@@ -17,11 +17,11 @@
 
 ## story_image_dropped
 * image_dropped
- - utter_nice_image
+ - action_image_acknowledged
  
 ## story_image_dropped_resize_01
 * image_dropped
- - utter_nice_image
+ - action_image_acknowledged
 * resize
  - action_resize
  

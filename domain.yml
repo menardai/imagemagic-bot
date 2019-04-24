@@ -38,20 +38,17 @@ slots:
 
 actions:
 - utter_resized
-- utter_nice_image
 - utter_thanks
 - utter_greet
 - utter_greet_name
 - utter_goodbye
 - action_resize
+- action_image_acknowledged
 
 
 templates:
   utter_resized:
   - text: "I resized your image, here it is:"
-
-  utter_nice_image:
-  - text: "What a nice image!"
 
   utter_greet:
   - text: "Nice to you meet you. How can I help?"

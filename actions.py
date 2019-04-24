@@ -68,6 +68,30 @@ class ActionResize(Action):
         return []
 
 
+class ActionImageAcknowledged(Action):
+    def name(self):
+        return "action_image_acknowledged"
+
+    def run(self, dispatcher, tracker, domain):
+        image = tracker.slots['images'][0] if tracker.slots.get('images') else None
+
+        if image:
+            source_file = Path(image['local_filename'])
+            # make sure image exists
+            if source_file.is_file():
+                utter_msg_str = f"Got it, nice picture! Here are the details I extracted:\n" \
+                                f"  name: {image['name']}\n" \
+                                f"  dimension: {image['width']}x{image['height']}\n" \
+                                f"  file size: {image['size']} bytes"
+            else:
+                utter_msg_str = "Oups, it looks like I had a problem saving the image you sent me :-("
+        else:
+            utter_msg_str = "Humm... Strange, I can't access the image you just send me :-("
+
+        dispatcher.utter_message(utter_msg_str)
+        return []
+
+
 class ActionJoke(Action):
     def name(self):
         # define the name of the action which can then be included in training stories
