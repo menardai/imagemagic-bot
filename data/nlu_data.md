@@ -12,13 +12,10 @@
 - I want the image to be this height and this wide
 - make it larger
 - make it smaller
-- make it square
 - I want it larger
 - I want it smaller
-- I want it square
 - I want the image larger
 - I want the image smaller
-- I want the image square
 - fit to
 - grow it to 
 - enlarge by 
@@ -31,6 +28,20 @@
 - Broaden
 - Larger
 - smaller
+
+## intent:resize_square
+- make it square
+- I want it square
+- I want the image square
+- Make each size equal
+- I want this picture to have the same width and height
+- width and height should be equal
+- width and height should be the same
+- width and height must be equal
+- width and height must be the same
+- This image should be square
+- Change the width so that it has the same height
+- Change the height so that it has the same width
 
 ## intent:image_dropped
 - USER_DROPPED_IMAGE
