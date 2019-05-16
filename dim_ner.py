@@ -44,35 +44,36 @@ class DimNerPreprocessor(Component):
     def train(self, training_data, cfg, **kwargs):
         pass
 
-    def convert_to_rasa(self, value, confidence):
+    def convert_to_rasa(self, entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
 
         entity = {"value": value,
                   "confidence": confidence,
-                  "entity": "dimension",
-                  "extractor": "dim_ner"}
+                  "entity": entity,
+                  "extractor": "dim_regex"}
         return entity
 
     def process(self, message, **kwargs):
         """ Extract dimension from message.text using a Name Entity Recognition model based on Bert. """
 
         # check for an existing dimension entity
-        #   entities => [{'value': '640x480', 'confidence': 1.0, 'entity': 'dimension', 'extractor': 'dim_regex'}]
-        dim_entity = [e for e in message.data.get('entities') if e['entity'] == 'dimension']
+        #   entities => [{'value': '640', 'confidence': 1.0, 'entity': 'width', 'extractor': 'dim_regex'}]
+        w_entity = [e for e in message.data.get('entities') if e['entity'] == 'width']
+        h_entity = [e for e in message.data.get('entities') if e['entity'] == 'height']
 
         # Ignore if the message is an image drop.
         # Ignore if previous preprocessor already decoded the dimension (dim_regex.py)
-        if "[IMAGEDROPPED]" not in message.text and not dim_entity:
+        if "[IMAGEDROPPED]" not in message.text and not w_entity and not h_entity:
             # ex: message.text = "resize to 640 by 480"
             dims = self.dim_ner.predict([message.text])  # dims = [{'W': 640, 'H': 480}]
 
             logger.info(f"*** BERT NER - dims = {dims} ***")
 
             if dims[0].get('W') and dims[0].get('H'):
-                dim_str = f"{dims[0]['W']}x{dims[0]['H']}"
-                entity = self.convert_to_rasa(dim_str, 1.0)
 
-                message.set("entities", [entity], add_to_output=True)
+                w_entity = self.convert_to_rasa('width',  int(dims[0]['W']), 1.0)
+                h_entity = self.convert_to_rasa('height', int(dims[0]['H']), 1.0)
+                message.set("entities", [w_entity, h_entity], add_to_output=True)
 
                 # replace numbers by "width" and "height" in text message to help intent recognition
                 message.text = message.text.replace(str(dims[0]['W']), 'width')

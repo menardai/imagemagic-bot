@@ -37,12 +37,12 @@ class DimRegexPreprocessor(Component):
     def train(self, training_data, cfg, **kwargs):
         pass
 
-    def convert_to_rasa(self, value, confidence):
+    def convert_to_rasa(self, entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
 
         entity = {"value": value,
                   "confidence": confidence,
-                  "entity": "dimension",
+                  "entity": entity,
                   "extractor": "dim_regex"}
         return entity
 
@@ -53,13 +53,14 @@ class DimRegexPreprocessor(Component):
         #   1 or more digits, follow by 0 more white space, 'x', 0 more white space, 1 or more digits.
         dim_search = re.search('(\d+)(\s*)x(\s*)(\d+)', message.text, re.IGNORECASE)
         if dim_search and "[IMAGEDROPPED]" not in message.text:
-            # ex: message.text = "resize to 640 x 480."
+            # ex: message.text = 'resize to 640 x 480.'
             dim_str = dim_search.group(0)   # '640 x 480'
             dim = dim_str.replace(" ", "")  # '640x480'
 
-            entity = self.convert_to_rasa(dim, 1.0)
+            w_entity = self.convert_to_rasa('width',  int(dim[:dim.index('x')]),   1.0)
+            h_entity = self.convert_to_rasa('height', int(dim[dim.index('x')+1:]), 1.0)
 
-            message.set("entities", [entity], add_to_output=True)
+            message.set("entities", [w_entity, h_entity], add_to_output=True)
 
             message.text = message.text.replace(dim_str, 'dimension')  # 'resize to dimension.'
 

@@ -21,19 +21,28 @@ intents:
 - user_joking
 
 
+forms:
+- resize_form
+
+
 entities:
 - name
-- dimension
+- width
+- height
 - images
 
 
 slots:
   name:
     type: text
-  dimension:
-    type: text
+
+  width:
+    type: unfeaturized
+  height:
+    type: unfeaturized
   images:
-    type: text
+    auto_fill: true  # if false, prevent custom_intent_classifier to fill the entities into slots/domain
+    type: unfeaturized
 
 
 actions:
