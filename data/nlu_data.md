@@ -1,3 +1,16 @@
+## intent:single_number_answer
+- SEE_SINGLE_NUMBER_CHECK_CLASS
+- USER_ENTERED_SINGLE_NUMBER_ANSWER
+- USER_ENTERED_DIGITS_ONLY
+- USER_ENTERED_NOTHING_BUT_NUMBERS
+
+## intent:image_dropped
+- SEE_IMAGE_DROPPED_CHECK_CLASS
+- USER_DROPPED_IMAGE
+- user_dropped_image
+- USER DROPPED IMAGE
+- user dropped image
+
 ## intent:resize
 - resize
 - resize to
@@ -232,12 +245,6 @@
 - This picture is 2x2, please resize it to dimension
 - Make it width and height from the actual 2x2
 
-
-## intent:image_dropped
-- USER_DROPPED_IMAGE
-- user_dropped_image
-- USER DROPPED IMAGE
-- user dropped image
 
 ## intent:greet
 - Hi

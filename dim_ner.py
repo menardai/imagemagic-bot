@@ -44,7 +44,8 @@ class DimNerPreprocessor(Component):
     def train(self, training_data, cfg, **kwargs):
         pass
 
-    def convert_to_rasa(self, entity, value, confidence):
+    @staticmethod
+    def convert_to_rasa(entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
 
         entity = {"value": value,
@@ -52,6 +53,15 @@ class DimNerPreprocessor(Component):
                   "entity": entity,
                   "extractor": "dim_regex"}
         return entity
+
+    @staticmethod
+    def is_int(string):
+        """Check if a string is an integer"""
+        try:
+            int(string)
+            return True
+        except ValueError:
+            return False
 
     def process(self, message, **kwargs):
         """ Extract dimension from message.text using a Name Entity Recognition model based on Bert. """
@@ -61,9 +71,17 @@ class DimNerPreprocessor(Component):
         w_entity = [e for e in message.data.get('entities') if e['entity'] == 'width']
         h_entity = [e for e in message.data.get('entities') if e['entity'] == 'height']
 
-        # Ignore if the message is an image drop.
-        # Ignore if previous preprocessor already decoded the dimension (dim_regex.py)
-        if "[IMAGEDROPPED]" not in message.text and not w_entity and not h_entity:
+        # - ignore if the message is an image drop (see rasa/core/channels/slack.py)
+        # - ignore if previous preprocessor already decoded the dimension (dim_regex.py)
+        # - ignore if the text message contains only a number (user is answering a question by a single number)
+        raison_to_ignore = "[IMAGEDROPPED]" in message.text or \
+                           (w_entity and h_entity) or \
+                           self.is_int(message.text)
+
+        if raison_to_ignore and self.is_int(message.text):
+            logger.info(f"*** BERT NER - ignore because single number only ***")
+
+        if not raison_to_ignore:
             # ex: message.text = "resize to 640 by 480"
             dims = self.dim_ner.predict([message.text])  # dims = [{'W': 640, 'H': 480}]
 

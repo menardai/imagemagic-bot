@@ -35,9 +35,15 @@ class ResizeForm(FormAction):
             - intent: value pairs
             - a whole message
             or a list of them, where a first match will be picked"""
-        mapping = {"width": [self.from_entity(entity="width")],
-                   "height": [self.from_entity(entity="height")],
-                   "images": [self.from_entity(entity="images")], }
+        mapping = {
+            "width": [self.from_entity(entity="width"),
+                      self.from_text(intent="single_number_answer")],
+
+            "height": [self.from_entity(entity="height"),
+                       self.from_text(intent="single_number_answer")],
+
+            "images": [self.from_entity(entity="images")],
+        }
         return mapping
 
     @staticmethod

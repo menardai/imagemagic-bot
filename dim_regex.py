@@ -37,7 +37,8 @@ class DimRegexPreprocessor(Component):
     def train(self, training_data, cfg, **kwargs):
         pass
 
-    def convert_to_rasa(self, entity, value, confidence):
+    @staticmethod
+    def convert_to_rasa(entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
 
         entity = {"value": value,
@@ -69,5 +70,4 @@ class DimRegexPreprocessor(Component):
     #     pass
 
     def persist(self, file_name, model_dir):
-        """0.14 version - Persist this component to disk for future loading."""
         pass
