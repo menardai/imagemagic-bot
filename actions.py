@@ -17,146 +17,92 @@ from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 logger = logging.getLogger(__name__)
 
 
-# class ResizeForm(FormAction):
-#     """Custom form action to handle resize"""
-#
-#     def name(self):
-#         """Unique identifier of the form"""
-#         return "resize_form"
-#
-#     @staticmethod
-#     def required_slots(tracker):
-#         """A list of required slots that the form has to fill"""
-#
-#         return ["width", "height", "images"]
-#
-#     def slot_mappings(self):
-#         # type: () -> Dict[Text: Union[Dict, List[Dict]]]
-#         """A dictionary to map required slots to
-#             - an extracted entity
-#             - intent: value pairs
-#             - a whole message
-#             or a list of them, where a first match will be picked"""
-#
-#         return {"cuisine": self.from_entity(entity="cuisine",
-#                                             not_intent="chitchat"),
-#                 # "num_people": [self.from_entity(entity="num_people",
-#                 #                                 intent=["inform",
-#                 #                                         "request_restaurant"]),
-#                 #                self.from_entity(entity="number")],
-#                 "outdoor_seating": [self.from_entity(entity="seating"),
-#                                     self.from_intent(intent='affirm',
-#                                                      value=True),
-#                                     self.from_intent(intent='deny',
-#                                                      value=False)],
-#                 "preferences": [self.from_intent(intent='deny',
-#                                                  value="no additional "
-#                                                        "preferences"),
-#                                 self.from_text(not_intent="affirm")],
-#                 "feedback": [self.from_entity(entity="feedback"),
-#                              self.from_text()]}
-#
-#     @staticmethod
-#     def cuisine_db():
-#         # type: () -> List[Text]
-#         """Database of supported cuisines"""
-#         return ["caribbean",
-#                 "chinese",
-#                 "french",
-#                 "greek",
-#                 "indian",
-#                 "italian",
-#                 "mexican"]
-#
-#     @staticmethod
-#     def is_int(string):
-#         """Check if a string is an integer"""
-#         try:
-#             int(string)
-#             return True
-#         except ValueError:
-#             return False
-#
-#     def validate(self, dispatcher, tracker, domain):
-#         """Validate extracted requested slot else reject the execution of the form action """
-#
-#         # extract other slots that were not requested but set by corresponding entity
-#         slot_values = self.extract_other_slots(dispatcher, tracker, domain)
-#
-#         # extract requested slot
-#         slot_to_fill = tracker.get_slot(REQUESTED_SLOT)
-#         if slot_to_fill:
-#             slot_values.update(self.extract_requested_slot(dispatcher, tracker, domain))
-#             if not slot_values:
-#                 # Reject form action execution if some slot was requested but nothing was extracted.
-#                 # It will allow other policies to predict another action
-#                 raise ActionExecutionRejection(self.name(), "Failed to validate slot {0} with action {1}"
-#                                                "".format(slot_to_fill, self.name()))
-#
-#         # we'll check when validation failed in order to add appropriate utterances
-#         for slot, value in slot_values.items():
-#             if slot == 'cuisine':
-#                 if value.lower() not in self.cuisine_db():
-#                     dispatcher.utter_template('utter_wrong_cuisine', tracker)
-#                     # validation failed, set slot to None
-#                     slot_values[slot] = None
-#
-#             # elif slot == 'num_people':
-#             #     if not self.is_int(value) or int(value) <= 0:
-#             #         dispatcher.utter_template('utter_wrong_num_people',
-#             #                                   tracker)
-#             #         # validation failed, set slot to None
-#             #         slot_values[slot] = None
-#
-#             elif slot == 'outdoor_seating':
-#                 if isinstance(value, str):
-#                     if 'out' in value:
-#                         # convert "out..." to True
-#                         slot_values[slot] = True
-#                     elif 'in' in value:
-#                         # convert "in..." to False
-#                         slot_values[slot] = False
-#                     else:
-#                         dispatcher.utter_template('utter_wrong_outdoor_seating', tracker)
-#                         # validation failed, set slot to None
-#                         slot_values[slot] = None
-#
-#         # validation succeed, set the slots values to the extracted values
-#         return [SlotSet(slot, value) for slot, value in slot_values.items()]
-#
-#     def submit(self, dispatcher, tracker, domain):
-#         """Define what the form has to do after all required slots are filled"""
-#
-#         # utter submit template
-#         dispatcher.utter_template('utter_submit', tracker)
-#         return []
+class ResizeForm(FormAction):
+    """Custom form action to handle resize"""
 
-
-class ActionResize(Action):
     def name(self):
-        # define the name of the action which can then be included in training stories
-        return "action_resize"
+        """Unique identifier of the form"""
+        return "resize_form"
 
-    def run(self, dispatcher, tracker, domain):
-        # Dimension
-        #   entities => [{'value': '640', 'confidence': 1.0, 'entity': 'width', 'extractor': 'dim_regex'}]
-        w_entity = [e for e in tracker.latest_message.get('entities') if e['entity'] == 'width']
-        h_entity = [e for e in tracker.latest_message.get('entities') if e['entity'] == 'height']
-        if w_entity and h_entity:
-            # priority goes to dimension specified in the latest message
-            width  = w_entity[0]['value']
-            height = h_entity[0]['value']
-        else:
-            # if not specified on the latest message then look in the slots
-            # because it could have been specified earlier in the conversation
-            width  = tracker.slots['width'] if tracker.slots.get('width') else None
-            height = tracker.slots['height'] if tracker.slots.get('height') else None
+    @staticmethod
+    def required_slots(tracker):
+        """A list of required slots that the form has to fill"""
+        return ["width", "height", "images"]
 
+    def slot_mappings(self):
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+        mapping = {"width": [self.from_entity(entity="width")],
+                   "height": [self.from_entity(entity="height")],
+                   "images": [self.from_entity(entity="images")], }
+        return mapping
+
+    @staticmethod
+    def is_int(string):
+        """Check if a string is an integer"""
+        try:
+            int(string)
+            return True
+        except ValueError:
+            return False
+
+    def validate(self, dispatcher, tracker, domain):
+        """Validate extracted requested slot else reject the execution of the form action """
+
+        # extract other slots that were not requested but set by corresponding entity
+        slot_values = self.extract_other_slots(dispatcher, tracker, domain)
+
+        # extract requested slot
+        slot_to_fill = tracker.get_slot(REQUESTED_SLOT)
+        if slot_to_fill:
+            slot_values.update(self.extract_requested_slot(dispatcher, tracker, domain))
+            if not slot_values:
+                # Reject form action execution if some slot was requested but nothing was extracted.
+                # It will allow other policies to predict another action
+                raise ActionExecutionRejection(self.name(),
+                                               f"Failed to validate slot {slot_to_fill} with action {self.name()}")
+
+        # we'll check when validation failed in order to add appropriate utterances
+        for slot, value in slot_values.items():
+            if slot == 'width':
+                if not self.is_int(value) or int(value) <= 0:
+                    dispatcher.utter_template('utter_wrong_width', tracker)
+                    # validation failed, set slot to None
+                    slot_values[slot] = None
+
+            elif slot == 'height':
+                if not self.is_int(value) or int(value) <= 0:
+                    dispatcher.utter_template('utter_wrong_height', tracker)
+                    # validation failed, set slot to None
+                    slot_values[slot] = None
+
+        # validation succeed, set the slots values to the extracted values
+        return [SlotSet(slot, value) for slot, value in slot_values.items()]
+
+    def submit(self, dispatcher, tracker, domain):
+        """Define what the form has to do after all required slots are filled"""
+
+        width = tracker.slots['width'] if tracker.slots.get('width') else None
+        height = tracker.slots['height'] if tracker.slots.get('height') else None
+        source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
+
+        result = ResizeForm.resize(width, height, source_filename)
+
+        # utter submit template
+        dispatcher.utter_message(result['message_str'])
+
+        if result['success']:
+            dispatcher.utter_attachment([{"title": f"Image resized to {result['dim_str']}",
+                                          "file": f"img_output/{result['target_name']}"}])
+        return []
+
+    @staticmethod
+    def resize(width, height, source_filename):
         dim_str = ""
         target_name = ""
-
-        # Image
-        source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
 
         if width and height and source_filename:
             source_file = Path(source_filename)
@@ -192,12 +138,12 @@ class ActionResize(Action):
         else:
             utter_msg_str = f'Sorry, something went wrong during resize operation... {error}.'
 
-        dispatcher.utter_message(utter_msg_str)
-        if not error:
-            dispatcher.utter_attachment([{"title": f"Image resized to {dim_str}",
-                                          "file": f"img_output/{target_name}"}])
-
-        return []
+        return {
+            "success": not error,
+            "message_str": utter_msg_str,
+            "dim_str": dim_str,
+            "target_name": target_name,
+        }
 
 
 class ActionImageAcknowledged(Action):

@@ -51,11 +51,25 @@ actions:
 - utter_greet
 - utter_greet_name
 - utter_goodbye
-- action_resize
 - action_image_acknowledged
 
 
 templates:
+  utter_ask_width:
+  - text: "What's the width of the new image?"
+
+  utter_ask_height:
+  - text: "What's the height of the new image?"
+
+  utter_ask_images:
+  - text: "Please drop the image you want to resize."
+
+  utter_wrong_width:
+  - text: "Sorry, the width value is not valid."
+
+  utter_wrong_height:
+  - text: "Sorry, the height value is not valid."
+
   utter_resized:
   - text: "I resized your image, here it is:"
 
