@@ -69,15 +69,24 @@ class DimNerPreprocessor(Component):
 
             logger.info(f"*** BERT NER - dims = {dims} ***")
 
-            if dims[0].get('W') and dims[0].get('H'):
-
+            entities = []
+            if dims[0].get('W'):
                 w_entity = self.convert_to_rasa('width',  int(dims[0]['W']), 1.0)
-                h_entity = self.convert_to_rasa('height', int(dims[0]['H']), 1.0)
-                message.set("entities", [w_entity, h_entity], add_to_output=True)
+                entities.append(w_entity)
 
                 # replace numbers by "width" and "height" in text message to help intent recognition
                 message.text = message.text.replace(str(dims[0]['W']), 'width')
+
+            if dims[0].get('H'):
+                h_entity = self.convert_to_rasa('height', int(dims[0]['H']), 1.0)
+                entities.append(h_entity)
+
+                # replace numbers by "width" and "height" in text message to help intent recognition
                 message.text = message.text.replace(str(dims[0]['H']), 'height')
+
+            if entities:
+                message.set("entities", entities, add_to_output=True)
+
                 logger.info(f"*** BERT NER - text = {message.text} ***")
 
     def persist(self, file_name, model_dir):
