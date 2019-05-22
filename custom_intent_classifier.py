@@ -46,6 +46,9 @@ class ImageDroppedCheck(Component):
             # deserialized images object from message.text
             images_json = message.text[14:]
 
+            if not images_json:
+                images_json = '[{"name": "debug_image.jpg", "size": 30038, "width": 320, "height": 180, "imageid": "FJWQ8J4TW", "imagetype": "jpg", "local_filename": "user_images/debug_image.jpg"}]'
+
             intent = {"name": "image_dropped", "confidence": 1.0}
             message.set("intent", intent, add_to_output=True)
 
