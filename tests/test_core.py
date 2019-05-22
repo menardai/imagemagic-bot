@@ -1,11 +1,11 @@
-from rasa_core import config
-from rasa_core.trackers import DialogueStateTracker
-from rasa_core.domain import Domain
-from rasa_core.policies import KerasPolicy
-from rasa_core.agent import Agent
-from rasa_core.dispatcher import Dispatcher
-from rasa_core.channels import CollectingOutputChannel
-from rasa_core.nlg import TemplatedNaturalLanguageGenerator
+from rasa.core import config
+from rasa.core.trackers import DialogueStateTracker
+from rasa.core.domain import Domain
+from rasa.core.policies import KerasPolicy
+from rasa.core.agent import Agent
+from rasa.core.dispatcher import Dispatcher
+from rasa.core.channels import CollectingOutputChannel
+from rasa.core.nlg import TemplatedNaturalLanguageGenerator
 
 from actions import ActionJoke
 import uuid

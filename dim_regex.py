@@ -1,6 +1,6 @@
 import re
 
-from rasa_nlu.components import Component
+from rasa.nlu.components import Component
 
 
 class DimRegexPreprocessor(Component):
@@ -64,10 +64,6 @@ class DimRegexPreprocessor(Component):
             message.set("entities", [w_entity, h_entity], add_to_output=True)
 
             message.text = message.text.replace(dim_str, 'dimension')  # 'resize to dimension.'
-
-    # def persist(self, model_dir):
-    #     """0.13 version - Persist this component to disk for future loading."""
-    #     pass
 
     def persist(self, file_name, model_dir):
         pass

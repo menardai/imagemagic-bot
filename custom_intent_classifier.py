@@ -1,7 +1,7 @@
 import logging
 import json
 
-from rasa_nlu.components import Component
+from rasa.nlu.components import Component
 
 logger = logging.getLogger(__name__)
 

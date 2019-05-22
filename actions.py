@@ -2,16 +2,17 @@
 import logging
 import requests
 import json
+import os
 import subprocess
 
 from pathlib import Path
-from rasa_core_sdk import Action
+from rasa_sdk import Action
 
-from rasa_core_sdk import ActionExecutionRejection
-from rasa_core_sdk import Tracker
-from rasa_core_sdk.events import SlotSet
-from rasa_core_sdk.executor import CollectingDispatcher
-from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
+from rasa_sdk import ActionExecutionRejection
+from rasa_sdk import Tracker
+from rasa_sdk.events import SlotSet
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormAction, REQUESTED_SLOT
 
 
 logger = logging.getLogger(__name__)
@@ -119,6 +120,10 @@ class ResizeForm(FormAction):
                 # add dimension to filename to create the output filename:
                 #   sunshine.jpg --> sunshine_1024x768.jpg
                 target_name = source_file.parts[-1].replace(source_file.suffix, f"_{dim_str}{source_file.suffix}")
+
+                # make sure output folder exists
+                if not os.path.exists('img_output'):
+                    os.makedirs('img_output')
 
                 # Execute ImageMagick command from bash
                 bash_command = f"magick {source_filename} -resize {dim_str} img_output/{target_name}"

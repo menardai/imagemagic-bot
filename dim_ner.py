@@ -1,7 +1,7 @@
 import logging
 
 from bert_ner_dimension.model import DimensionBertNer
-from rasa_nlu.components import Component
+from rasa.nlu.components import Component
 
 logger = logging.getLogger(__name__)
 
@@ -108,5 +108,4 @@ class DimNerPreprocessor(Component):
                 logger.info(f"*** BERT NER - text = {message.text} ***")
 
     def persist(self, file_name, model_dir):
-        """0.14 version - Persist this component to disk for future loading."""
         pass
