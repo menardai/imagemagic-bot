@@ -122,3 +122,80 @@
     - resize_image_form
     - slot{"height":"600"}
     - slot{"requested_slot":null}
+
+## Story from conversation with me on May 23rd 2019
+
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+* resize_image{"width":800}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"width":800}
+    - slot{"width":800}
+    - slot{"requested_slot":"height"}
+* single_number_answer
+    - resize_image_form
+    - slot{"height":"600"}
+    - slot{"requested_slot":null}
+
+## Story from conversation with me on May 23rd 2019
+
+* resize_image{"height":600}
+    - slot{"height":600}
+    - resize_image_form
+    - slot{"height":600}
+    - slot{"height":600}
+    - slot{"requested_slot":"images"}
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* single_number_answer
+    - resize_image_form
+    - slot{"width":"800"}
+    - slot{"requested_slot":null}
+* thanks
+    - utter_thanks
+
+## Story from conversation with me on May 23rd 2019
+
+* resize_image{"height":600}
+    - slot{"height":600}
+    - resize_image_form
+    - slot{"height":600}
+    - slot{"height":600}
+    - slot{"requested_slot":"images"}
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* resize_image{"width":800}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"width":800}
+    - slot{"requested_slot":null}
+
+## Story from conversation with me on May 23rd 2019
+
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+* resize_image
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* resize_image{"width":800}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"width":800}
+    - slot{"requested_slot":"height"}
+* resize_image{"height":600}
+    - slot{"height":600}
+    - resize_image_form
+    - slot{"height":600}
+    - slot{"requested_slot":null}
+
