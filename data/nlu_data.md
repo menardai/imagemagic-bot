@@ -11,7 +11,7 @@
 - USER DROPPED IMAGE
 - user dropped image
 
-## intent:resize
+## intent:resize_image
 - resize
 - resize to
 - resize to dimension

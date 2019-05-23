@@ -18,17 +18,17 @@ from rasa_sdk.forms import FormAction, REQUESTED_SLOT
 logger = logging.getLogger(__name__)
 
 
-class ResizeForm(FormAction):
+class ResizeImageForm(FormAction):
     """Custom form action to handle resize"""
 
     def name(self):
         """Unique identifier of the form"""
-        return "resize_form"
+        return "resize_image_form"
 
     @staticmethod
     def required_slots(tracker):
         """A list of required slots that the form has to fill"""
-        return ["width", "height", "images"]
+        return ["images", "width", "height"]
 
     def slot_mappings(self):
         """A dictionary to map required slots to
@@ -96,7 +96,7 @@ class ResizeForm(FormAction):
         height = tracker.slots['height'] if tracker.slots.get('height') else None
         source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
 
-        result = ResizeForm.resize(width, height, source_filename)
+        result = self.resize(width, height, source_filename)
 
         # utter submit template
         dispatcher.utter_message(result['message_str'])

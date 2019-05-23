@@ -1,5 +1,5 @@
 intents:
-- resize
+- resize_image
 - image_dropped
 - greet
 - name
@@ -22,7 +22,7 @@ intents:
 
 
 forms:
-- resize_form
+- resize_image_form
 
 
 entities:
@@ -46,7 +46,7 @@ slots:
 
 
 actions:
-- utter_resized
+- utter_image_resized
 - utter_thanks
 - utter_greet
 - utter_greet_name
@@ -70,7 +70,7 @@ templates:
   utter_wrong_height:
   - text: "Sorry, the height value is not valid."
 
-  utter_resized:
+  utter_image_resized:
   - text: "I resized your image, here it is:"
 
   utter_greet:
