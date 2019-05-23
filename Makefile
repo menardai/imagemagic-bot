@@ -1,4 +1,4 @@
-.PHONY: clean train action-server cmdline slack
+.PHONY: clean train action-server cmdline slack x
 
 TEST_PATH=./
 
@@ -34,3 +34,6 @@ cmdline:
 
 slack:
 	python -m rasa run --cors "*" --credentials credentials.yml --connector slack --debug
+
+x:
+	python -m rasa x
