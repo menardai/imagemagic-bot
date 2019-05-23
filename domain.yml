@@ -1,6 +1,7 @@
 intents:
 - resize_image
 - image_dropped
+- single_number_answer
 - greet
 - name
 - help
