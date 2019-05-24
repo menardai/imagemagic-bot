@@ -7,6 +7,12 @@ intents:
 # grayscale_*.md
 - convert_image_to_grayscale
 
+# instructions_nlu.md
+- resize_image_instruction
+- convert_image_to_grayscale_instruction
+- drop_image_instruction
+- general_image_instruction
+
 # chitchat_*.md
 - greet
 - name
@@ -69,32 +75,44 @@ actions:
 
 templates:
   utter_ask_width:
-  - text: "What's the width of the new image?"
+    - text: "What's the width of the new image?"
 
   utter_ask_height:
-  - text: "What's the height of the new image?"
+    - text: "What's the height of the new image?"
 
   utter_ask_images:
-  - text: "Please drop the image here."
+    - text: "Please drop the image here."
 
   utter_wrong_width:
-  - text: "Sorry, the width value is not valid."
+    - text: "Sorry, the width value is not valid."
 
   utter_wrong_height:
-  - text: "Sorry, the height value is not valid."
+    - text: "Sorry, the height value is not valid."
 
   utter_image_resized:
-  - text: "I resized your image, here it is:"
+    - text: "I resized your image, here it is:"
 
   utter_greet:
-  - text: "Nice to you meet you. How can I help?"
+    - text: "Hello, I'm an image processing master bot. How can I help you?"
 
   utter_greet_name:
-  - text: "Nice to you meet you {name}. How can I help?"
+    - text: "Nice to you meet you {name}. I'm an image processing master bot. How can I help?"
 
   utter_goodbye:
-  - text: "Talk to you later!"
+    - text: "Talk to you later!"
   
   utter_thanks:
-  - text: "My pleasure."
-  
+    - text: "My pleasure."
+
+  utter_resize_image_instruction:
+    - text: "*** Resize Image Instruction Here ***"
+
+  utter_convert_image_to_grayscale_instruction:
+    - text: "*** Grayscale Image Instruction Here ***"
+
+  utter_drop_image_instruction:
+    - text: "*** Drop Image Instruction Here ***"
+
+  utter_general_image_instruction:
+    - text: "*** General Instructions Here ***"
+

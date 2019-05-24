@@ -13,3 +13,5 @@
 - what about convert it to black and white?
 - please give me a grayscale version
 - give me a black and white version of this image
+- if I give you an image can you turn it in black and white
+- can you help me convert a picture in grayscale
