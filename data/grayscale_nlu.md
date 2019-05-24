@@ -1,0 +1,15 @@
+## intent:convert_image_to_grayscale
+- convert the image to grayscale
+- convert the image to black and white
+- convert the image to b/w
+- convert the image to b&w
+- make it gray
+- make it a black and white image
+- I want it in black and white
+- I want it in grayscale
+- I want it in gray scale
+- can you convert the image to grayscale?
+- can you change it to black and white?
+- what about convert it to black and white?
+- please give me a grayscale version
+- give me a black and white version of this image

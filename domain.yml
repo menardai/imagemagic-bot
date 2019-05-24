@@ -1,7 +1,13 @@
 intents:
+# resize_image_*.md
 - resize_image
 - image_dropped
 - single_number_answer
+
+# grayscale_*.md
+- convert_image_to_grayscale
+
+# chitchat_*.md
 - greet
 - name
 - help
@@ -24,6 +30,7 @@ intents:
 
 forms:
 - resize_image_form
+- convert_image_to_grayscale_form
 
 
 entities:
@@ -38,24 +45,25 @@ slots:
   name:
     type: text
 
+  # resize_image
   width:
     type: unfeaturized
   height:
     type: unfeaturized
   images:
-    auto_fill: true  # if false, prevent custom_intent_classifier to fill the entities into slots/domain
     type: unfeaturized
-
   dim_state:
     type: unfeaturized
 
 
 actions:
 - utter_image_resized
+
 - utter_thanks
 - utter_greet
 - utter_greet_name
 - utter_goodbye
+
 - action_image_acknowledged
 
 

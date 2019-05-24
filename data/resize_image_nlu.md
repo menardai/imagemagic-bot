@@ -15,7 +15,6 @@
 - resize
 - resize to
 - resize to dimension
-- resize to dimension
 - resize image to dimension
 - resize this image to dimension
 - I want to resize a picture

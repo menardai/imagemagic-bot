@@ -191,6 +191,135 @@ class ResizeImageForm(FormAction):
         }
 
 
+class ConvertImageToGrayScaleForm(FormAction):
+    """Custom form action to handle resize"""
+
+    def name(self):
+        """Unique identifier of the form"""
+        return "convert_image_to_grayscale_form"
+
+    @staticmethod
+    def required_slots(tracker):
+        """A list of required slots that the form has to fill"""
+        return ["images"]
+
+    def slot_mappings(self):
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+        mapping = {
+            "images": [self.from_entity(entity="images")],
+
+            "dim_state": [],
+        }
+        return mapping
+
+    @staticmethod
+    def update_dim_state(dim_state, value):
+        """Add value to dim_state string, if not already there"""
+        if not dim_state:
+            dim_state = value
+        elif value not in dim_state:
+            dim_state += value
+
+        return dim_state
+
+    def validate(self, dispatcher, tracker, domain):
+        """Validate extracted requested slot else reject the execution of the form action """
+
+        # extract other slots that were not requested but set by corresponding entity
+        slot_values = self.extract_other_slots(dispatcher, tracker, domain)
+
+        # extract requested slot
+        slot_to_fill = tracker.get_slot(REQUESTED_SLOT)
+        if slot_to_fill:
+            slot_values.update(self.extract_requested_slot(dispatcher, tracker, domain))
+            if not slot_values:
+                # Reject form action execution if some slot was requested but nothing was extracted.
+                # It will allow other policies to predict another action
+                raise ActionExecutionRejection(self.name(),
+                                               f"Failed to validate slot {slot_to_fill} with action {self.name()}")
+
+        # we'll check when validation failed in order to add appropriate utterances
+        image_replaced = False
+        dim_state = tracker.slots.get('dim_state')
+
+        for slot, value in slot_values.items():
+            if slot == 'images':
+                # flag width has just replaced if dim_state indicate a width has already been set before
+                image_replaced = 'I' in dim_state if dim_state else False
+                dim_state = self.update_dim_state(dim_state, 'I')
+
+        slot_values['dim_state'] = dim_state
+
+        # utter a message to acknowledge the change (if any)
+        if image_replaced:
+            dispatcher.utter_message(f"Good, I got the new image!")
+
+        # validation succeed, set the slots values to the extracted values
+        return [SlotSet(slot, value) for slot, value in slot_values.items()]
+
+    def submit(self, dispatcher, tracker, domain):
+        """Define what the form has to do after all required slots are filled"""
+
+        source_filename = tracker.slots['images'][0]['local_filename'] if tracker.slots.get('images') else None
+
+        result = self.convert_to_grayscale(source_filename)
+
+        # utter submit template
+        dispatcher.utter_message(result['message_str'])
+
+        if result['success']:
+            dispatcher.utter_attachment([{"title": f"Image converted to grayscale",
+                                          "file": f"img_output/{result['target_name']}"}])
+        return []
+
+    @staticmethod
+    def convert_to_grayscale(source_filename):
+        dim_str = ""
+        target_name = ""
+
+        if source_filename:
+            source_file = Path(source_filename)
+            # make sure image exists
+            if source_file.is_file():
+                # add 'grayscale' to filename to create the output filename:
+                #   sunshine.jpg --> sunshine_grayscale.jpg
+                target_name = source_file.parts[-1].replace(source_file.suffix, f"_grayscale{source_file.suffix}")
+
+                # make sure output folder exists
+                if not os.path.exists('img_output'):
+                    os.makedirs('img_output')
+
+                # Execute ImageMagick command from bash
+                bash_command = f"magick {source_filename} -colorspace Gray img_output/{target_name}"
+
+                try:
+                    process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+                    output, error = process.communicate()
+                except Exception as e:
+                    error = 'Exception raised by ImageMagick (convert_to_grayscale)'
+
+            else:
+                error = f'Image "{source_filename}" do not exists'
+        else:
+            if not source_filename:
+                error = 'No image specified'
+
+        if not error:
+            utter_msg_str = f'The image has been converted to grayscale and saved to: img_output/{target_name}'
+        else:
+            utter_msg_str = f'Sorry, something went wrong during grayscale operation... {error}.'
+
+        return {
+            "success": not error,
+            "message_str": utter_msg_str,
+            "target_name": target_name,
+        }
+
+
 class ActionImageAcknowledged(Action):
     def name(self):
         return "action_image_acknowledged"
