@@ -44,6 +44,8 @@ class ResizeImageForm(FormAction):
                        self.from_text(intent="single_number_answer")],
 
             "images": [self.from_entity(entity="images")],
+            
+            "dim_state": [],
         }
         return mapping
 
@@ -55,6 +57,16 @@ class ResizeImageForm(FormAction):
             return True
         except ValueError:
             return False
+
+    @staticmethod
+    def update_dim_state(dim_state, value):
+        """Add value to dim_state string, if not already there"""
+        if not dim_state:
+            dim_state = value
+        elif value not in dim_state:
+            dim_state += value
+
+        return dim_state
 
     def validate(self, dispatcher, tracker, domain):
         """Validate extracted requested slot else reject the execution of the form action """
@@ -73,18 +85,40 @@ class ResizeImageForm(FormAction):
                                                f"Failed to validate slot {slot_to_fill} with action {self.name()}")
 
         # we'll check when validation failed in order to add appropriate utterances
+        width_replaced = False
+        height_replaced = False
+        dim_state = tracker.slots.get('dim_state')
+
         for slot, value in slot_values.items():
             if slot == 'width':
                 if not self.is_int(value) or int(value) <= 0:
                     dispatcher.utter_template('utter_wrong_width', tracker)
                     # validation failed, set slot to None
                     slot_values[slot] = None
+                else:
+                    # flag width has just replaced if dim_state indicate a width has already been set before
+                    width_replaced = 'W' in dim_state if dim_state else False
+                    dim_state = self.update_dim_state(dim_state, 'W')
 
             elif slot == 'height':
                 if not self.is_int(value) or int(value) <= 0:
                     dispatcher.utter_template('utter_wrong_height', tracker)
                     # validation failed, set slot to None
                     slot_values[slot] = None
+                else:
+                    # flag height has just replaced if dim_state indicate a height has already been set before
+                    height_replaced = 'H' in dim_state if dim_state else False
+                    dim_state = self.update_dim_state(dim_state, 'H')
+
+        slot_values['dim_state'] = dim_state
+
+        # utter a message to acknowledge the change (if any)
+        if width_replaced and height_replaced:
+            dispatcher.utter_message(f"I got it, the new dimension is {slot_values['width']}x{slot_values['height']}.")
+        elif width_replaced:
+            dispatcher.utter_message(f"I got it, the new width is {slot_values['width']}.")
+        elif height_replaced:
+            dispatcher.utter_message(f"I got it, the new height is {slot_values['height']}.")
 
         # validation succeed, set the slots values to the extracted values
         return [SlotSet(slot, value) for slot, value in slot_values.items()]

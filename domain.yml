@@ -28,6 +28,7 @@ forms:
 
 entities:
 - name
+
 - width
 - height
 - images
@@ -43,6 +44,9 @@ slots:
     type: unfeaturized
   images:
     auto_fill: true  # if false, prevent custom_intent_classifier to fill the entities into slots/domain
+    type: unfeaturized
+
+  dim_state:
     type: unfeaturized
 
 
