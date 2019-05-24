@@ -44,7 +44,7 @@ class ResizeImageForm(FormAction):
                        self.from_text(intent="single_number_answer")],
 
             "images": [self.from_entity(entity="images")],
-            
+
             "dim_state": [],
         }
         return mapping

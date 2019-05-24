@@ -16,7 +16,7 @@ def test_agent_and_persist():
     policies[0] = KerasPolicy(epochs=2)       # Keep training times low
 
     agent = Agent('domain.yml', policies=policies)
-    training_data = agent.load_data('data/stories.md')
+    training_data = agent.load_data('data/resize_image_stories.md')
     agent.train(training_data, validation_split=0.0)
     agent.persist('./tests/models/dialogue')
 
