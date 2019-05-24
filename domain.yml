@@ -75,7 +75,7 @@ templates:
   - text: "What's the height of the new image?"
 
   utter_ask_images:
-  - text: "Please drop the image you want to resize."
+  - text: "Please drop the image here."
 
   utter_wrong_width:
   - text: "Sorry, the width value is not valid."
