@@ -8,10 +8,10 @@ intents:
 - convert_image_to_grayscale
 
 # instructions_nlu.md
-- resize_image_instruction
-- convert_image_to_grayscale_instruction
-- drop_image_instruction
-- general_image_instruction
+- instruction_resize_image
+- instruction_convert_image_to_grayscale
+- instruction_drop_image
+- instruction_general_image
 
 # chitchat_*.md
 - greet
@@ -70,6 +70,11 @@ actions:
 - utter_greet_name
 - utter_goodbye
 
+- utter_instruction_resize_image
+- utter_instruction_convert_image_to_grayscale
+- utter_instruction_drop_image
+- _instruction_utter_general_image
+
 - action_image_acknowledged
 
 
@@ -104,15 +109,15 @@ templates:
   utter_thanks:
     - text: "My pleasure."
 
-  utter_resize_image_instruction:
-    - text: "*** Resize Image Instruction Here ***"
+  utter_instruction_resize_image:
+    - text: "To resize, start by dropping an image here and then ask me to resize it at a specific dimension."
 
-  utter_convert_image_to_grayscale_instruction:
-    - text: "*** Grayscale Image Instruction Here ***"
+  utter_instruction_convert_image_to_grayscale:
+    - text: "Simply drop the image here and ask me to convert it to grayscale, it's that easy!"
 
-  utter_drop_image_instruction:
-    - text: "*** Drop Image Instruction Here ***"
+  utter_instruction_drop_image:
+    - text: "To send me a picture, drag it from your file browser and drop it here."
 
-  utter_general_image_instruction:
+  _instruction_utter_general_image:
     - text: "*** General Instructions Here ***"
 

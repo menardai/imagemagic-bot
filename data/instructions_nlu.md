@@ -1,4 +1,8 @@
-## intent:resize_image_instruction
+## intent:instruction_resize_image
+- instruction resize
+- instruction change size
+- how to resize
+- how to change size
 - what are the instruction to resize an image
 - what is the procedure to resize an image
 - how do we resize an image
@@ -7,9 +11,19 @@
 - I would like to change the size of my image
 - Can I resize 2 pictures at once?
 - How can we change the size of 2 images?
+- Please help me resize an image
+- Please tell how to resize an image
+- Hello, tell me how to change the size a picture
+- can you show me how to make my image larger
+- how do I make an image smaller
+- give me instructions to resize image
 
 
-## intent:convert_image_to_grayscale_instruction
+## intent:instruction_convert_image_to_grayscale
+- instruction grayscale
+- instruction black and white
+- hwo to grayscale
+- how to black and white
 - what are the instruction to convert an image to grayscale
 - what are the instruction to convert an image to black and white
 - what is the procedure to create a grayscale image
@@ -21,14 +35,28 @@
 - How can I convert to gray scale
 - How can I convert to black and white
 - I want a grayscale image, how does it works
+- please help me convert my picture to grayscale
+- how can I convert to black and white please
+- hello, can you help convert to grayscale or black and white
+- give me instructions to convert my image to grayscale
+- give me instructions to change in black and white
 
 
-## intent:drop_image_instruction
+## intent:instruction_drop_image
+- instruction drop image
+- instruction give image
+- instruction send image
+- instruction drop picture
+- instruction give picture
+- instruction send picture
 - how do I send you the image
 - I can't figure out how to give you the image
+- hello, tell me how do I send my picture
+- tell me how to send image
+- show me how to give you picture
 
 
-## intent:general_image_instruction
+## intent:instruction_general_image
 - Is it possible to apply the same operation to 2 images?
 - How do I upload more than 1 image at the time?
 - Did you get the last 2 images I sent you?

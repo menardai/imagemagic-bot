@@ -6,7 +6,67 @@
     - form{"name": "convert_image_to_grayscale_form"}
     - form{"name": null}
 
+## story_image_dropped_to_grayscale_01_instruction
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
+* image_dropped
+    - action_image_acknowledged
+* convert_image_to_grayscale   
+    - convert_image_to_grayscale_form
+    - form{"name": "convert_image_to_grayscale_form"}
+    - form{"name": null}
+
+## story_image_dropped_to_grayscale_02_instruction
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
+* image_dropped
+    - action_image_acknowledged
+* convert_image_to_grayscale   
+    - convert_image_to_grayscale_form
+    - form{"name": "convert_image_to_grayscale_form"}
+    - form{"name": null}
+* instruction_resize_image
+    - utter_instruction_resize_image
+
+## story_instructions_grayscale_only_01
+* instruction_resize_image
+    - utter_instruction_resize_image
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
+
+## story_instructions_grayscale_only_02
+* instruction_resize_image
+    - utter_instruction_resize_image
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
+* image_dropped
+    - action_image_acknowledged
+
+## story_instructions_grayscale_only_03
+* instruction_resize_image
+    - utter_instruction_resize_image
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
+* convert_image_to_grayscale   
+    - convert_image_to_grayscale_form
+    - form{"name": "convert_image_to_grayscale_form"}
+    - form{"name": null}
+
 ## story_image_dropped_to_grayscale_02
+* image_dropped
+    - action_image_acknowledged
+* convert_image_to_grayscale   
+    - convert_image_to_grayscale_form
+    - form{"name": "convert_image_to_grayscale_form"}
+    - form{"name": null}
+* thanks
+    - utter_thanks
+* goodbye
+    - utter_goodbye
+
+## story_image_dropped_to_grayscale_02_instruction
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
 * image_dropped
     - action_image_acknowledged
 * convert_image_to_grayscale   
@@ -21,6 +81,18 @@
 ## story_image_dropped_to_grayscale_03
 * greet
     - utter_greet
+* image_dropped
+    - action_image_acknowledged
+* convert_image_to_grayscale   
+    - convert_image_to_grayscale_form
+    - form{"name": "convert_image_to_grayscale_form"}
+    - form{"name": null}
+
+## story_image_dropped_to_grayscale_03_instruction
+* greet
+    - utter_greet
+* instruction_convert_image_to_grayscale
+    - utter_instruction_convert_image_to_grayscale 
 * image_dropped
     - action_image_acknowledged
 * convert_image_to_grayscale   
