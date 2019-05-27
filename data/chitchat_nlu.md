@@ -127,6 +127,7 @@
 - I need an advice from you
 - I seek your advice
 - what can you recommend
+- what can you do
 - what do you suggest
 - what is your advice
 

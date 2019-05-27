@@ -16,7 +16,6 @@ intents:
 # chitchat_*.md
 - greet
 - name
-- help
 - advide
 - user_waiting
 - smart
@@ -31,6 +30,7 @@ intents:
 - wow
 - goodbye
 - user_joking
+- help: {triggers: utter_capabilities}
 - insult: {triggers: utter_respond_insult}
 
 
@@ -70,6 +70,7 @@ actions:
 - utter_greet_name
 - utter_goodbye
 - utter_respond_insult
+- utter_capabilities
 
 - utter_instruction_resize_image
 - utter_instruction_convert_image_to_grayscale
@@ -112,6 +113,15 @@ templates:
 
   utter_respond_insult:
     - text: "That's not very nice."
+
+  utter_capabilities:
+    - text: "Here is a list of my current capabilities: \n
+             - resize \n
+             - convert to grayscale/black and white \n
+             
+             I should be able to help with those very soon: \n
+             - rotate, flip image \n
+             - convert various format (jpeg, png, gif, etc.) \n"
 
 
   utter_instruction_resize_image:
