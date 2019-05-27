@@ -20,7 +20,6 @@ intents:
 - advide
 - user_waiting
 - smart
-- crazy
 - funny
 - good
 - talk
@@ -32,6 +31,7 @@ intents:
 - wow
 - goodbye
 - user_joking
+- insult: {triggers: utter_respond_insult}
 
 
 forms:
@@ -69,11 +69,12 @@ actions:
 - utter_greet
 - utter_greet_name
 - utter_goodbye
+- utter_respond_insult
 
 - utter_instruction_resize_image
 - utter_instruction_convert_image_to_grayscale
 - utter_instruction_drop_image
-- _instruction_utter_general_image
+- instruction_utter_general_image
 
 - action_image_acknowledged
 
@@ -109,6 +110,10 @@ templates:
   utter_thanks:
     - text: "My pleasure."
 
+  utter_respond_insult:
+    - text: "That's not very nice."
+
+
   utter_instruction_resize_image:
     - text: "To resize, start by dropping an image here and then ask me to resize it at a specific dimension."
 
@@ -118,6 +123,6 @@ templates:
   utter_instruction_drop_image:
     - text: "To send me a picture, drag it from your file browser and drop it here."
 
-  _instruction_utter_general_image:
+  instruction_utter_general_image:
     - text: "*** General Instructions Here ***"
 

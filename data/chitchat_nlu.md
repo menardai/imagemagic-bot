@@ -173,7 +173,9 @@
 - why are you so smart
 - you are so clever
 
-## intent:crazy
+## intent:insult
+- you're stupid
+- I hate you
 - you're nuts
 - you are crazy
 - you're out of your mind
