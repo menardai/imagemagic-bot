@@ -272,3 +272,136 @@
     - slot{"height":600}
     - slot{"requested_slot":null}
 
+## Story from conversation with me on May 27th 2019 - ask once instruction 01
+
+
+* help OR advice
+    - utter_capabilities
+* instruction_resize_image
+    - utter_instruction_resize_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* single_number_answer
+    - resize_image_form
+    - slot{"width":"800"}
+    - slot{"dim_state":"W"}
+    - slot{"requested_slot":"height"}
+* single_number_answer
+    - resize_image_form
+    - slot{"height":"600"}
+    - slot{"dim_state":"WH"}
+    - slot{"requested_slot":null}
+* thanks
+    - utter_thanks
+
+## Story from conversation with me on May 27th 2019 - ask once instruction 02
+
+* greet
+    - utter_greet
+* instruction_resize_image
+    - utter_instruction_resize_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* resize_image{"width":800,"height":600}
+    - slot{"height":600}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"width":800}
+    - slot{"height":600}
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"width":800}
+    - slot{"height":600}
+    - slot{"requested_slot":null}
+* thanks
+    - utter_thanks
+
+## Story from conversation with me on May 27th 2019 - ask twice for instruction 01
+
+* greet
+    - utter_greet
+* instruction_resize_image
+    - utter_instruction_resize_image
+* instruction_drop_image
+    - utter_instruction_drop_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* single_number_answer
+    - resize_image_form
+    - slot{"width":"800"}
+    - slot{"dim_state":"W"}
+    - slot{"requested_slot":"height"}
+* single_number_answer
+    - resize_image_form
+    - slot{"height":"600"}
+    - slot{"dim_state":"WH"}
+    - slot{"requested_slot":null}
+
+## Story from conversation with me on May 27th 2019 - ask twice for instruction (help)
+
+* instruction_resize_image
+    - utter_instruction_resize_image
+* help OR advice
+    - utter_instruction_drop_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - action_image_acknowledged
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":"width"}
+* single_number_answer
+    - resize_image_form
+    - slot{"width":"800"}
+    - slot{"dim_state":"W"}
+    - slot{"requested_slot":"height"}
+* single_number_answer
+    - resize_image_form
+    - slot{"height":"600"}
+    - slot{"dim_state":"WH"}
+    - slot{"requested_slot":null}
+
+## Story from conversation with me on May 27th 2019 - ask instruction interruption
+
+* resize_image{"width":800,"height":600}
+    - slot{"height":600}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"width":800}
+    - slot{"height":600}
+    - slot{"requested_slot":"images"}
+* instruction_drop_image
+    - utter_instruction_drop_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":null}
+
+## Story from conversation with me on May 27th 2019 - ask help interruption
+
+* resize_image{"width":800,"height":600}
+    - slot{"height":600}
+    - slot{"width":800}
+    - resize_image_form
+    - slot{"width":800}
+    - slot{"height":600}
+    - slot{"requested_slot":"images"}
+* help OR advice
+    - utter_instruction_drop_image
+* image_dropped{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - slot{"images":[{"name":"debug_image.jpg","size":30038,"width":320,"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg"}]}
+    - resize_image_form
+    - slot{"images":[{"height":180,"imageid":"FJWQ8J4TW","imagetype":"jpg","local_filename":"user_images/debug_image.jpg","name":"debug_image.jpg","size":30038,"width":320}]}
+    - slot{"requested_slot":null}
+

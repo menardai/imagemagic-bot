@@ -55,8 +55,8 @@ class DimRegexPreprocessor(Component):
         dim_search = re.search('(\d+)(\s*)x(\s*)(\d+)', message.text, re.IGNORECASE)
         if dim_search and "[IMAGEDROPPED]" not in message.text:
             # ex: message.text = 'resize to 640 x 480.'
-            dim_str = dim_search.group(0)   # '640 x 480'
-            dim = dim_str.replace(" ", "")  # '640x480'
+            dim_str = dim_search.group(0)           # '640 x 480'
+            dim = dim_str.replace(" ", "").lower()  # '640x480'
 
             w_entity = self.convert_to_rasa('width',  int(dim[:dim.index('x')]),   1.0)
             h_entity = self.convert_to_rasa('height', int(dim[dim.index('x')+1:]), 1.0)

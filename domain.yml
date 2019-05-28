@@ -30,7 +30,7 @@ intents:
 - wow
 - goodbye
 - user_joking
-- help: {triggers: utter_capabilities}
+- help
 - insult: {triggers: utter_respond_insult}
 
 
@@ -118,7 +118,7 @@ templates:
     - text: "Here is a list of my current capabilities: \n
              - resize \n
              - convert to grayscale/black and white \n
-             
+
              I should be able to help with those very soon: \n
              - rotate, flip image \n
              - convert various format (jpeg, png, gif, etc.) \n"
