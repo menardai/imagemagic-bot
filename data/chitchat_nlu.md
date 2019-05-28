@@ -15,6 +15,54 @@
 - hello is anybody there
 - hello robot
 
+## intent:affirm
+- yes
+- ok
+- okay
+- super
+- great
+- fine
+- good
+- nice
+- okay good
+- it's fine
+- it's good
+- it's okay
+- that's great
+- very nice
+- it's very good
+- that's fine
+- very nice
+- go ahead
+- yes, please do it
+- please do it
+- ok, do it
+- fine, do it
+- just do it
+- just do it please
+
+## intent:deny
+- no
+- don't
+- don't do that
+- don't do it
+- do not do that
+- do not do it
+- absolutely not
+- ho no!
+- it's not good
+- it's not fine
+- it's not okay
+- it's not ok
+- not okay
+- not ok
+- no please
+- please no
+- please don't
+- please don't do it
+- please do not do it
+
+
 ## intent:name
 - My name is [Juste](name)  <!--- Square brackets contain the value of entity while the text in parentheses is a a label of the entity --> 
 - I am [Josh](name)
@@ -259,7 +307,6 @@
 - let's tell everyone that you are awesome
 - you are really amazing
 - so cool
-- cool
 - that is good
 - glad to hear that
 - that's very nice of you
@@ -272,14 +319,10 @@
 - that's great
 - it's good
 - it's great
-- fine
-- good
-- nice
 - that's fine
 - very good
 - amazing
 - fantastic
-- great
 - good very good
 - that's very good
 - really good
@@ -298,7 +341,6 @@
 - really nice
 - splendid
 - straight
-- super
 - super fantastic
 - sweet
 - really well
@@ -331,7 +373,6 @@
 - this is awesome
 - this is good
 - this is great
-- very nice
 - very then
 - wonderful
 - I'm glad to hear that
@@ -347,13 +388,6 @@
 - good thing
 - that was good
 - it's awesome
-- okay good
-- it's fine
-- no it's okay
-- that's great
-- very nice
-- it's very good
-- that's fine
 
 
 ## intent:talk

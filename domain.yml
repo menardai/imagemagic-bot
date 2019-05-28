@@ -15,6 +15,8 @@ intents:
 
 # chitchat_*.md
 - greet
+- affirm
+- deny
 - name
 - advide
 - user_waiting
@@ -58,6 +60,8 @@ slots:
     type: unfeaturized
   images:
     type: unfeaturized
+  stretch:
+    type: unfeaturized
   dim_state:
     type: unfeaturized
 
@@ -65,22 +69,34 @@ slots:
 actions:
 - utter_image_resized
 
-- utter_thanks
+- utter_ask_width
+- utter_ask_height
+- utter_ask_images
+- utter_ask_stretch
+
+- utter_wrong_width
+- utter_wrong_height
+
 - utter_greet
 - utter_greet_name
 - utter_goodbye
+- utter_thanks
 - utter_respond_insult
 - utter_capabilities
 
 - utter_instruction_resize_image
 - utter_instruction_convert_image_to_grayscale
 - utter_instruction_drop_image
-- instruction_utter_general_image
+- utter_instruction_general_image
 
 - action_image_acknowledged
 
 
 templates:
+  utter_image_resized:
+    - text: "I resized your image, here it is:"
+
+
   utter_ask_width:
     - text: "What's the width of the new image?"
 
@@ -90,14 +106,16 @@ templates:
   utter_ask_images:
     - text: "Please drop the image here."
 
+  utter_ask_stretch:
+    - text: "The dimension you requested have a different ratio. Do you want me to stretch the image?"
+
+
   utter_wrong_width:
     - text: "Sorry, the width value is not valid."
 
   utter_wrong_height:
     - text: "Sorry, the height value is not valid."
 
-  utter_image_resized:
-    - text: "I resized your image, here it is:"
 
   utter_greet:
     - text: "Hello, I'm an image processing master bot. How can I help you?"
@@ -133,6 +151,6 @@ templates:
   utter_instruction_drop_image:
     - text: "To send me a picture, drag it from your file browser and drop it here."
 
-  instruction_utter_general_image:
+  utter_instruction_general_image:
     - text: "*** General Instructions Here ***"
 
