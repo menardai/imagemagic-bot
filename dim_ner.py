@@ -1,12 +1,12 @@
 import logging
 
 from bert_ner_dimension.model import DimensionBertNer
-from rasa.nlu.components import Component
+from rasa.nlu.extractors import EntityExtractor
 
 logger = logging.getLogger(__name__)
 
 
-class DimNerPreprocessor(Component):
+class DimNerPreprocessor(EntityExtractor):
     """
     Preprocessing dimension using Bert Ner Dimension.
 
@@ -48,10 +48,14 @@ class DimNerPreprocessor(Component):
     def convert_to_rasa(entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
 
-        entity = {"value": value,
-                  "confidence": confidence,
-                  "entity": entity,
-                  "extractor": "dim_regex"}
+        entity = {
+            "value": value,
+            "confidence": confidence,
+            "entity": entity,
+
+            "start": 0, # dummy  value
+            "end": 1,   # dummy  value
+        }
         return entity
 
     @staticmethod
@@ -74,18 +78,19 @@ class DimNerPreprocessor(Component):
         # - ignore if the message is an image drop (see rasa/core/channels/slack.py)
         # - ignore if previous preprocessor already decoded the dimension (dim_regex.py)
         # - ignore if the text message contains only a number (user is answering a question by a single number)
-        raison_to_ignore = "[IMAGEDROPPED]" in message.text or \
+        reason_to_ignore = "[IMAGEDROPPED]" in message.text or \
                            (w_entity and h_entity) or \
                            self.is_int(message.text)
 
-        if raison_to_ignore and self.is_int(message.text):
+        if reason_to_ignore and self.is_int(message.text):
             logger.info(f"*** BERT NER - ignore because single number only ***")
 
-        if not raison_to_ignore:
+        if not reason_to_ignore:
             # ex: message.text = "resize to 640 by 480"
             dims = self.dim_ner.predict([message.text])  # dims = [{'W': 640, 'H': 480}]
 
-            logger.info(f"*** BERT NER - dims = {dims} ***")
+            if dims and dims[0]:
+                logger.info(f"*** BERT NER - dims = {dims} ***")
 
             entities = []
             if dims[0].get('W'):
@@ -103,7 +108,11 @@ class DimNerPreprocessor(Component):
                 message.text = message.text.replace(str(dims[0]['H']), 'height')
 
             if entities:
-                message.set("entities", entities, add_to_output=True)
+                entities = self.add_extractor_name(entities)
+
+                message.set(
+                    "entities", message.get("entities", []) + entities, add_to_output=True
+                )
 
                 logger.info(f"*** BERT NER - text = {message.text} ***")
 

@@ -1,9 +1,10 @@
 import re
 
 from rasa.nlu.components import Component
+from rasa.nlu.extractors import EntityExtractor
 
 
-class DimRegexPreprocessor(Component):
+class DimRegexPreprocessor(EntityExtractor):
     """
     Preprocessing dimension using regex.
 
@@ -40,11 +41,15 @@ class DimRegexPreprocessor(Component):
     @staticmethod
     def convert_to_rasa(entity, value, confidence):
         """Convert model output into the Rasa NLU compatible output format."""
+        entity = {
+            "value": value,
+            "confidence": confidence,
+            "entity": entity,
 
-        entity = {"value": value,
-                  "confidence": confidence,
-                  "entity": entity,
-                  "extractor": "dim_regex"}
+            "start": 0, # dummy  value
+            "end": 1,   # dummy  value
+        }
+
         return entity
 
     def process(self, message, **kwargs):
@@ -58,12 +63,18 @@ class DimRegexPreprocessor(Component):
             dim_str = dim_search.group(0)           # '640 x 480'
             dim = dim_str.replace(" ", "").lower()  # '640x480'
 
-            w_entity = self.convert_to_rasa('width',  int(dim[:dim.index('x')]),   1.0)
-            h_entity = self.convert_to_rasa('height', int(dim[dim.index('x')+1:]), 1.0)
+            width_str = dim[:dim.index('x')]
+            height_str = dim[dim.index('x') + 1:]
 
-            message.set("entities", [w_entity, h_entity], add_to_output=True)
+            w_entity = self.convert_to_rasa('width', int(width_str), 1.0)
+            h_entity = self.convert_to_rasa('height', int(height_str), 1.0)
 
             message.text = message.text.replace(dim_str, 'dimension')  # 'resize to dimension.'
+
+            entities = self.add_extractor_name([w_entity, h_entity])
+            message.set(
+                "entities", message.get("entities", []) + entities, add_to_output=True
+            )
 
     def persist(self, file_name, model_dir):
         pass

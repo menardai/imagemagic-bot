@@ -30,7 +30,7 @@
 - grow it to 
 - enlarge by 
 - Extend
-- Expande
+- Expand
 - Widen
 - Increase
 - Rise

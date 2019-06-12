@@ -17,6 +17,24 @@
 
 ## intent:affirm
 - yes
+- yes please
+- yes, please
+- please yes
+- yeap
+- yeap please!
+- sure
+- do it
+- do that
+- do this
+- exactly
+- yes, exactly
+- exactly, that's it
+- confirm
+- of course
+- sounds good
+- that's correct
+- I don't mind
+- I agree
 - ok
 - okay
 - super
@@ -40,12 +58,33 @@
 - fine, do it
 - just do it
 - just do it please
+- ok, do that
+- fine, do that
+- just do that
+- just do that, please
+- ok, do this
+- fine, do this
+- just do this
+- just do this, please
+- let's do it
+- let's do this
+- let's do that
 
 ## intent:deny
 - no
+- don't do it
+- definitely not
+- not really
+- thanks but no
+- not interested
+- I don't think so
+- I disagree
+- I don't want that
+- nok
+- nope
+- no thanks
 - don't
 - don't do that
-- don't do it
 - do not do that
 - do not do it
 - absolutely not
@@ -59,8 +98,6 @@
 - no please
 - please no
 - please don't
-- please don't do it
-- please do not do it
 
 
 ## intent:name
