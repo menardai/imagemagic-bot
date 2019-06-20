@@ -9,4 +9,4 @@ Note:
 - remplace /rasa/core/channels/slack.py by our slack.py (to accept images)
 
 
-*Work in progress*
+*Work in progress...*
