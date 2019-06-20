@@ -1,0 +1,251 @@
+Resize the image to 640x480
+Resize the image to 640 480
+Resize the image to 640,480
+Resize the image to 640 by 480
+
+Change the size to 640x480
+Change the size to 640 480
+Change the size to 640,480
+Change the size to 640 by 480
+
+Make it 640x480
+Make it 640 480
+Make it 640,480
+Make it 640 by 480
+
+Fit the picture in 640x480
+Fit the picture in 640 480
+Fit the picture in 640,480
+Fit the picture in 640 by 480
+
+I need a picture 640,480
+I need it to be 640x480
+640 by 480 is what I need
+640x480 as new size
+Give me one of size 640x480
+Give me a picture 640x480
+Give me this picture in 640x480
+Send me one at 640x480
+
+Size of 640 480
+New size=640x480
+I need it to be 640 and 480
+No, the new size should be 640 by 480
+You're correct, the new size is 640 480
+
+Dimension of 640 480
+New dimension=640x480
+I need it to have a dimension of 640 and 480
+Give me one with dimension 640,480
+No, the new dimension must be 640 by 480
+Yes, the new dimension is 640x480
+
+The size I'm looking for is 640x480
+640x480 would be perfect!
+Yes, please go ahead with 640 and 480
+No, 640 by 480 instead
+I expected a dimension of 640x480
+The correct dim is 640 by 480, please make the change
+What about a width of 640 and a height of 480?
+Go for 640 and 480 height
+I asked for a larger image of 640x480
+Make a 640,480 copy of the previous image
+Fit both side in a new image with 640 horiz by 480 vert
+dim 640x480
+dimension: 640 by 480
+a size of 640x480
+640x480 is good
+I want 640x480
+
+Give me 640 480
+640 480 is perfect
+Please 640 480
+Fit to 640 480
+Make 640 480
+I want the image 640 and 480
+Please make it 640, 480
+
+640x480 please!
+640 480 please!
+640,480 please!
+640 by 480 please!
+
+640x480
+640 480
+640,480
+640 by 480
+640 and 480
+640x480 pixels
+640 480 pixels
+640,480 pix
+640 by 480
+640 and 480
+width 640 height 480
+width 640 and height 480
+width 640 for height 480
+640 width and 480 height
+640 width by 480 height
+640 width by 480
+640 by 480 height
+large of 640 and a height of 480
+horizontal 640 with 480 vertical
+640 horizontal and 480 vertical
+
+Make it 640 wide by 480 height
+Resize it 640 wide by 480 height
+Change the size to 640 wide by 480 height
+I want the image to be 640 wide by 480 height
+
+Change the size to 480 height and 640 width
+Change the size to 480 height and 640 wide
+I want the image to be 480 height and 640 width
+I want the image to be 480 height and 640 wide
+Resize to 480 height and 640 width
+Resize to a height of 480 and a width of 640
+A height of 480 and width 640
+height 480 width 640
+height of 480 with a width 640
+height of 480 for width 640
+height 480 by width 640
+height 480 and 640 for the other side
+480 height by 640
+480 height and 640
+480 height by 640 width
+480 height and 640 width
+480 height by 640 wide
+480 height and 640 wide
+480 height, 640 width
+480 height 640 width
+height 480, 640 width
+height=480, 640=width
+height=480 640=width
+480 vertical for 640 horizontal
+vertical 480 width 640
+vertical of 480 with a width 640
+vertical of 480 for width 640
+vertical 480 by width 640
+vertical 480 horizontal 640
+vertical of 480 with horizontal 640
+vertical of 480 for horizontal 640
+vertical 480 by horizontal 640
+vertical of 480 with a 640 width
+vertical of 480 for 640 width
+vertical 480 by 640 width
+vertical 480, 640 horizontal
+
+width of 640
+width=640
+height of 480
+height=480
+Make it larger at 640
+Make it higher at 480
+I want an image 480 tall
+vertical 480
+horizontal 640
+a wideness of 640
+a span of 640
+a broadness of 640
+a largeness of 640
+
+Enlarge to 800
+Enlarge to about 800
+Grow to 800
+Grow to about 800
+Reduce to 800
+Reduce to about 800
+Fit to 800
+Fit to about 800
+Make it at least 800
+Make it at most 800
+Make it about 800
+I want it about 800
+I want it bigger than 800
+I want it smaller than 800
+800 would be ok
+800 is good
+800 would be nice
+800 is great
+not more than 800
+at least 800
+about 800 is alright
+not sure, but 800 would be correct
+no, I said 800!
+
+Resize these 2 images like the previous ones
+Change the size of these 2 images
+Make the same change on the 3 other pictures
+Fit those 2 pictures together
+Please forget about the last 2 images
+The width is wrong in the last 2 pictures
+1 of the sides are incorrect
+Can I resize 2 pictures at once?
+How can we change the size of 2 images?
+Is it possible to apply the same operation to 2 images?
+How do I upload more than 1 image at the time?
+Resize those 2 images for me
+Apply the change to these 2 images please
+Did you get the last 2 images I sent you?
+What is wrong with the last 2 pictures?
+Anything bad about the previous 2 commands?
+Can I send you 2 more requests?
+
+Please repeat the last 2 steps
+Forget about my last 2 comments
+I want to repeat the last 2 steps on a new image
+
+Sorry my bad, I want a height of 480 not 2
+No, width=640 not 2
+That's wrong, height=480 not 2
+Incorrect, the width is 640 not 2
+The height is 480 and not 2, you got is wrong
+No it's not 2, I want a width of 640
+2 is wrong, I want the height to be 480
+2 is not good, 640 is the width
+2 is not good, the correct width is 640
+The correct height is 480, 2 is bad
+What's wrong with you, I said width=640, it's not 2
+The width is wrong, it's not 2, it's 640
+You got the wrong height, it's not 2 but 640
+
+No, 640 is the width not the height
+No, 480 is the height not the width
+My bad, 480 is the height not width
+No, 640 is not the height, it's the width
+No, 640 isn't height, it's width
+You're wrong, the height is not 640, it's the width
+You're wrong, the width is not 480, it's the height
+640 isn't height, it's width... sorry
+480 isn't width, it's height
+This is not the width, 480 is the height
+
+The height is good but the width is 640
+The width is good but the height is 480
+height is 480, the width is correct
+The height is incorrect, height=480
+The width is incorrect, width=640
+You got the wrong width, width is 640
+You got the wrong width, it should be 640
+It's ok but change the width for 640
+Good but change the height for 480
+The height is bad, it should be 480
+Yes, but height should be 480
+Correct, but width should be 640
+Replace width by 640
+Update height to 480
+Replace the height by 480 please
+Forget it, use 480 as height
+Ok, use 640 as width
+No problem, but 480 is the height
+
+Resize to 640x480 from 2x2
+Change from 2x2 to 640x480
+I want to change the size from 2x2 to 640x480
+The actual size is 2x2 but I want it 640x480
+The image is 2x2 and I want to 640x480
+Current dimension is 2x2 but give me one with 640x480
+Get me an image that is 640x480 from this 2x2
+I want 640x480 from this 2x2
+Resize it to 640 and 480 from this 2x2
+The image is 2x2, give me a 640x480
+This picture is 2x2, please resize it to 640x480
+Make it 640 and 480 from the actual 2x2
